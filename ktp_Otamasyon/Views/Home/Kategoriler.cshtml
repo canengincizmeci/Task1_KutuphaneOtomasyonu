@@ -1,0 +1,31 @@
+﻿@model List<ktp_Otamasyon.Models.Kategori>
+@{
+    ViewBag.Title = "Kategoriler";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Kategori</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ktg in Model)
+            {
+                <tr>
+                    <td>@ktg.id</td>
+                    <td>@ktg.kategoriAd</td>
+                    <td><a href="@Url.Action("KategoriSil","Home",new {kategori_id=ktg.id})" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("KategoriEkle","Home")" class="btn btn-success">Ekle</a>
+</div>
+
+
